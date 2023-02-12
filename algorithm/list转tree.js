@@ -17,6 +17,10 @@ const list = [
     parentId: 16,
   },
   {
+    id: 20,
+    parentId: 19,
+  },
+  {
     id: 17,
     parentId: 16,
   },
@@ -35,11 +39,6 @@ function convert(list, parentKey, currentKey, rootValue) {
       map.get(el[parentKey]).push(el);
     }
   });
-  console.log(map);
-  // const res = Object.fromEntries(map);
-  // tree.children = map.get(rootValue);
-  // console.log(tree);
-  // let p = tree;
   const constructTree = (node) => {
     if (!map.get(node[currentKey])) return;
     node.children = map.get(node[currentKey]);
