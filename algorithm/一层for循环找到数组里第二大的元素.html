@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+
+</head>
+
+<body>
+
+  <script>
+    const list = [
+      {
+        id: 19,
+        parentId: 0,
+      },
+      {
+        id: 18,
+        parentId: 16,
+      },
+      {
+        id: 17,
+        parentId: 16,
+      },
+      {
+        id: 16,
+        parentId: 0,
+      },
+    ];
+    function convert(list, parentKey, currentKey, rootValue) {
+      const map = new Map();
+      const tree = { id: rootValue };
+      list.forEach((el) => {
+        if (!map.has(el[parentKey])) {
+          map.set(el[parentKey], [el]);
+        } else {
+          map.get(el[parentKey]).push(el);
+        }
+      });
+      console.log(map);
+      // const res = Object.fromEntries(map);
+      // tree.children = map.get(rootValue);
+      // console.log(tree);
+      // let p = tree;
+      const constructTree = (node) => {
+        if (!map.get(node[currentKey])) return;
+        node.children = map.get(node[currentKey]);
+        node.children.forEach((item) => {
+          constructTree(item);
+        });
+      };
+      constructTree(tree);
+      return tree;
+    }
+
+    const result = convert(list, "parentId", "id", 0);
+    console.log(result);
+
+  </script>
+
+
+
+</body>
+
+</html>

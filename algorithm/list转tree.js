@@ -37,33 +37,42 @@ function convert(list, parentKey, currentKey, rootValue) {
   });
   console.log(map);
   // const res = Object.fromEntries(map);
-  tree.children = map.get(rootValue);
+  // tree.children = map.get(rootValue);
   // console.log(tree);
-  let p = tree;
-  tree.children = map.get(rootValue);
+  // let p = tree;
+  const constructTree = (node) => {
+    if (!map.get(node[currentKey])) return;
+    node.children = map.get(node[currentKey]);
+    node.children.forEach((item) => {
+      constructTree(item);
+    });
+  };
+  constructTree(tree);
+  return tree;
 }
 
 const result = convert(list, "parentId", "id", 0);
-const tree = {
-  id: 0,
-  children: [
-    {
-      id: 19,
-      parentId: 0,
-    },
-    {
-      id: 16,
-      parentId: 0,
-      children: [
-        {
-          id: 18,
-          parentId: 16,
-        },
-        {
-          id: 17,
-          parentId: 16,
-        },
-      ],
-    },
-  ],
-};
+console.log(result);
+// const tree = {
+//   id: 0,
+//   children: [
+//     {
+//       id: 19,
+//       parentId: 0,
+//     },
+//     {
+//       id: 16,
+//       parentId: 0,
+//       children: [
+//         {
+//           id: 18,
+//           parentId: 16,
+//         },
+//         {
+//           id: 17,
+//           parentId: 16,
+//         },
+//       ],
+//     },
+//   ],
+// };
