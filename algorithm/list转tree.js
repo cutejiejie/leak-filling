@@ -6,7 +6,6 @@
  * @param rootValue {any}
  * @return object
  */
-function convert(list, parentKey, currentKey, rootValue) {}
 
 const list = [
   {
@@ -26,6 +25,23 @@ const list = [
     parentId: 0,
   },
 ];
+function convert(list, parentKey, currentKey, rootValue) {
+  const map = new Map();
+  const tree = { id: rootValue };
+  list.forEach((el) => {
+    if (!map.has(el[parentKey])) {
+      map.set(el[parentKey], [el]);
+    } else {
+      map.get(el[parentKey]).push(el);
+    }
+  });
+  console.log(map);
+  // const res = Object.fromEntries(map);
+  tree.children = map.get(rootValue);
+  // console.log(tree);
+  let p = tree;
+  tree.children = map.get(rootValue);
+}
 
 const result = convert(list, "parentId", "id", 0);
 const tree = {
