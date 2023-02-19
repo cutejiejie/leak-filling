@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h1>主页面</h1>
+  <iframe id="child" src="http://10.0.0.159:8080"></iframe>
+  <div>
+    <h2>主页面跨域接收消息区域</h2>
+    <div id="message"></div>
+  </div>
+</body>
+<script>
+  /* -------------iframe跨域数据传递--------------- */
+
+  //传递数据到子页面
+  window.onload = function () {
+    document.getElementById('child').contentWindow.postMessage("主页面消息", "http://10.0.0.159:8080")
+  }
+  //接受子页面传递过来的数据
+  window.addEventListener('message', function (event) {
+    document.getElementById('message').innerHTML = "收到" + event.origin + "消息：" + event.data;
+  }, false);
+</script>
+
+</html>
