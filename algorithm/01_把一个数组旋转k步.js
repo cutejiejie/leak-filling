@@ -16,6 +16,7 @@ const res1 = rotate1(arr, 9);
 console.log(res1);
 
 const rotate2 = (arr, step) => {
+  if (!step || arr.length === 0) return arr;
   step = Math.abs(step % arr.length);
   const part1 = arr.slice(-step);
   const part2 = arr.slice(0, arr.length - step);
@@ -23,5 +24,5 @@ const rotate2 = (arr, step) => {
   return arr;
 };
 
-const res2 = rotate1(arr2, 9);
+const res2 = rotate1([]);
 console.log(res2);
