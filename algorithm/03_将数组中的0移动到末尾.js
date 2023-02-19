@@ -21,3 +21,30 @@ const moveArr1 = (arr) => {
 
 moveArr1(arr);
 console.log(arr);
+
+/* 
+  双指针
+  定义j指向第一一个0，i指向j后面的第一个非0
+  交换i和j的值，继续向后移动
+  只遍历一次，所以时间复杂度是O(n)
+ */
+const arr2 = [1, 0, 0, 3, 0, 11, 2, 0, 9, 0, 0];
+const moveArr2 = (arr) => {
+  const length = arr.length;
+  if (length === 0) return;
+  let j = -1;
+  for (let i = 0; i < length; i++) {
+    if (arr[i] === 0 && j < 0) {
+      j = i;
+    }
+    if (arr[i] !== 0 && j >= 0) {
+      const temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      j++;
+    }
+  }
+};
+
+moveArr2(arr2);
+console.log(arr2);
