@@ -26,3 +26,6 @@ const rotate2 = (arr, step) => {
 
 const res2 = rotate1([]);
 console.log(res2);
+
+// 思路1 :时间复杂度O(n^2) , 空间复杂度O(1)
+// 思路2 :时间复杂度O(1) , 空间复杂度O(n)
