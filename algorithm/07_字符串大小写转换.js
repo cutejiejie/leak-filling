@@ -20,7 +20,7 @@ const bigSmall = (str) => {
 const result = bigSmall(string);
 console.log(result);
 
-/* ASCLL码 */
+/* ASCII码 */
 const string2 = "AbcDG123Hjl";
 const bigSmall2 = (str) => {
   let res = "";
