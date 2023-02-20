@@ -46,3 +46,11 @@ const isPalindrome2 = function (x) {
 
 const str2 = 12321;
 console.log(isPalindrome2(str2));
+
+/* 
+  划重点
+  尽量不要转换数据结构，尤其数组这种有序结构
+  尽量不要用内置API，如reverse
+  不好识别复杂度
+  数字操作最快，其次是字符串
+ */
