@@ -31,3 +31,26 @@ const findContinuousChar1 = (str) => {
 
 const result = findContinuousChar1(string);
 console.log(result);
+
+/* 
+  双指针
+  定义指针i和j。j 不动，i继续移动
+  如果i和j的值一直相等，则i继续移动
+  直到i和j的值不相等，记录处理，让j追上i。继续第一步
+ */
+const string2 = "aaabbccdeggggg";
+const findContinuousChar2 = (str) => {
+  const res = {
+    char: "",
+    charLength: 0,
+  };
+  const length = str.length;
+  if (length === 0) return res;
+  let i,
+    j = 0;
+
+  return res;
+};
+
+const result2 = findContinuousChar2(string2);
+console.log(result2);
