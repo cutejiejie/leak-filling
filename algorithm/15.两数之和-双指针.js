@@ -4,18 +4,14 @@ const findNum = (nums, target) => {
   let j = nums.length - 1;
   const res = [];
   while (i < j) {
-    console.log(i, j);
     if (nums[i] + nums[j] > target) {
       j--;
     } else if (nums[i] + nums[j] < target) {
       i++;
-    } else {
-      res.push(i);
-      res.push(j);
-      break;
+    } else if (nums[i] + nums[j] === target) {
+      return [i, j];
     }
   }
-  console.log(res);
-  return res;
+  return "找不到";
 };
-console.log(findNum(arr, 6));
+console.log(findNum(arr, 7));
