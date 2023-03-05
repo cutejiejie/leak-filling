@@ -16,4 +16,5 @@ function foo(x, y, z) {
 }
 
 var fooCurry = currying(foo);
-fooCurry(10)(20)(30);
+// fooCurry(10)(20)(30);
+fooCurry(10, 20)(30);
