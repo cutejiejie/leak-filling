@@ -6,10 +6,9 @@
  */
 const arr = [1, 0, 0, 3, 0, 11, 0, 0];
 const moveArr1 = (arr) => {
-  const length = arr.length;
-  if (length === 0) return;
+  if (arr.length === 0) return;
   let zeroLength = 0;
-  for (let i = 0; i < length - zeroLength; i++) {
+  for (let i = 0; i < arr.length - zeroLength; i++) {
     if (arr[i] === 0) {
       arr.push(0);
       arr.splice(i, 1);
@@ -18,7 +17,6 @@ const moveArr1 = (arr) => {
     }
   }
 };
-
 moveArr1(arr);
 console.log(arr);
 
@@ -28,15 +26,16 @@ console.log(arr);
   交换i和j的值，继续向后移动
   只遍历一次，所以时间复杂度是O(n)
  */
-const arr2 = [1, 0, 0, 3, 0, 11, 2, 0, 9, 0, 0];
+const arr2 = [1, 0, 0, 1, 1, 0, 4, 8];
 const moveArr2 = (arr) => {
-  const length = arr.length;
-  if (length === 0) return;
-  let j = -1;
-  for (let i = 0; i < length; i++) {
+  if (arr.length === 0) return;
+  let j = -1; // 指向第一个0
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] === 0 && j < 0) {
+      console.log("----------------", j);
       j = i;
     }
+    // 说明j已经指向了第一个0
     if (arr[i] !== 0 && j >= 0) {
       const temp = arr[i];
       arr[i] = arr[j];
@@ -45,6 +44,5 @@ const moveArr2 = (arr) => {
     }
   }
 };
-
 moveArr2(arr2);
 console.log(arr2);
