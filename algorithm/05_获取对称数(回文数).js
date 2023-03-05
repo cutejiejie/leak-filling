@@ -28,23 +28,20 @@ const isPalindrome2 = function (x) {
   x = x.toString();
   if (x.length <= 0) return false;
   // 字符串头尾比较
-  let flag = true;
   let i = 0; // 字符串开始
   let j = x.length - 1; // 字符串结束
   while (i < j) {
     if (x[i] !== x[j]) {
-      flag = false;
-      break;
+      return false;
     } else {
       // 继续比较
       i++;
       j--;
     }
   }
-  return flag;
+  return true;
 };
-
-const str2 = 12321;
+const str2 = 8123218;
 console.log(isPalindrome2(str2));
 
 /* 
