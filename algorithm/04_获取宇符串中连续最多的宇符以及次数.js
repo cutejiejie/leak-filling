@@ -1,28 +1,26 @@
-const string = "aaabbccdeggggg";
+const string = "aaabbccdeggggga";
 const findContinuousChar1 = (str) => {
   const res = {
     char: "",
     charLength: 0,
   };
-  const length = str.length;
-  if (length === 0) return res;
-  for (let i = 0; i < length; i++) {
-    let charNum = 0;
-    for (let j = i; j < length; j++) {
+  if (str.length === 0) return res;
+  for (let i = 0; i < str.length; i++) {
+    let tempLength = 0;
+    for (let j = i; j < str.length; j++) {
       if (str[j] === str[i]) {
-        charNum++;
+        tempLength++;
       }
-      if (str[j] !== str[i] || j === length - 1) {
+      if (str[j] !== str[i] || j === str.length - 1) {
         // 不相等，或者已经到了最后一个元素，要去判断最大值
-        if (charNum > res.charLength) {
+        if (tempLength > res.charLength) {
           res.char = str[i];
-          res.charLength = charNum;
+          res.charLength = tempLength;
         }
-
-        if (i < length - 1) {
+        if (i < str.length - 1) {
           i = j - 1; // 跳步
         }
-        break;
+        break; // break j的循环
       }
     }
   }
@@ -53,4 +51,4 @@ const findContinuousChar2 = (str) => {
 };
 
 const result2 = findContinuousChar2(string2);
-console.log(result2);
+// console.log(result2);
