@@ -25,17 +25,16 @@ const string2 = "AbcDG123Hjl@#$%!98";
 const bigSmall2 = (str) => {
   let res = "";
   for (let i = 0; i < str.length; i++) {
-    // const code = str.charCodeAt(i);
     const c = str[i];
     const code = c.charCodeAt(0);
     if (code >= 65 && code <= 90) {
-      res += c.toLowerCase();
+      res += c.toLowerCase(); // 大写转小写
     } else if (code >= 97 && code <= 122) {
-      res += c.toUpperCase();
+      res += c.toUpperCase(); // 小写转大写
     } else if (code >= 48 && code <= 57) {
-      res += c;
+      res += c; // 数字直接相加
     } else {
-      res += "";
+      res += ""; // 删除其余删除
     }
   }
   return res;
