@@ -18,26 +18,28 @@ const bigSmall = (str) => {
 };
 
 const result = bigSmall(string);
-console.log(result);
+console.log("正则匹配法：", result);
 
 /* ASCII码 */
-const string2 = "AbcDG123Hjl";
+const string2 = "AbcDG123Hjl@#$%!98";
 const bigSmall2 = (str) => {
   let res = "";
   for (let i = 0; i < str.length; i++) {
     // const code = str.charCodeAt(i);
     const c = str[i];
     const code = c.charCodeAt(0);
-    if (65 <= code <= 90) {
-      res += c.toUpperCase();
-    } else if (97 <= code <= 122) {
+    if (code >= 65 && code <= 90) {
       res += c.toLowerCase();
-    } else {
+    } else if (code >= 97 && code <= 122) {
+      res += c.toUpperCase();
+    } else if (code >= 48 && code <= 57) {
       res += c;
+    } else {
+      res += "";
     }
   }
   return res;
 };
 
-const result2 = bigSmall(string2);
-console.log(result2);
+const result2 = bigSmall2(string2);
+console.log("ASCII码法", result2);
