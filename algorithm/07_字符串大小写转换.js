@@ -1,4 +1,3 @@
-const string = "AbcDG123Hjl";
 const bigSmall = (str) => {
   let res = "";
   if (str.length === 0) return res;
@@ -16,12 +15,11 @@ const bigSmall = (str) => {
   }
   return res;
 };
-
+const string = "AbcDG123Hjl";
 const result = bigSmall(string);
 console.log("正则匹配法：", result);
 
 /* ASCII码 */
-const string2 = "AbcDG123Hjl@#$%!98";
 const bigSmall2 = (str) => {
   let res = "";
   for (let i = 0; i < str.length; i++) {
@@ -39,6 +37,6 @@ const bigSmall2 = (str) => {
   }
   return res;
 };
-
+const string2 = "AbcDG123Hjl@#$%!98";
 const result2 = bigSmall2(string2);
 console.log("ASCII码法", result2);
