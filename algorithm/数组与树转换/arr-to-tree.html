@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 0 代表顶级节点，无父节点
+    const arr = [
+      { id: 1, name: "部门A", parentId: 0 },
+      { id: 2, name: "部门B", parentId: 1 },
+      { id: 3, name: "部门C", parentId: 1 },
+      { id: 4, name: "部门D", parentId: 2 },
+      { id: 5, name: "部门E", parentId: 2 },
+      { id: 6, name: "部门F", parentId: 3 },
+    ];
+
+    const convert = (arr) => {
+      const map = new Map();
+      arr.forEach((item) => {
+        if (!map.has(item.parentId)) {
+          map.set(item.parentId, [item]);
+        } else {
+          map.get(item.parentId).push(item);
+        }
+      });
+
+      let res = map.get(0)[0];
+      const rec = (node) => {
+        node.children = map.get(node.id);
+        if (!node.children) return;
+        node.children.forEach((item) => {
+          rec(item);
+        });
+      };
+      rec(res);
+      return res
+    };
+    const res = convert(arr);
+    console.log(res);
+  </script>
+</body>
+
+</html>
