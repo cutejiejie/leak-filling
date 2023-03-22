@@ -137,8 +137,16 @@ console.log(namesIterator1.next());
 // const results = message.matchAll(/《.+》/g).next();
 // console.log(results);
 
-const str = "<h1>title单位羽绒服请8有hello</h1>";
+/* const str = "<h1>title单位羽绒服请8有hello</h1>";
 const result = str.match(/<(?<节>.+?)(>)/);
 console.log(result);
 console.log(result[0]);
 console.log(result[1]);
+ */
+
+const date = new Date();
+console.log(date.getTime());
+console.log(+date);
+console.log(Date.now());
+console.log(new Date().valueOf());
+console.log("parse:", Date.parse("1979-01-01"));
