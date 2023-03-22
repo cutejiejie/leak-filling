@@ -24,21 +24,21 @@ function queryURLparams(url) {
 console.log(queryURLparams(url));
 
 // 方法【3】
-// function queryURLparamsRegEs5(url) {
-//   let obj = {};
-//   let reg = /([^?=&]+)=([^?=&]+)/g;
-//   url.replace(reg, function () {
-//     obj[arguments[1]] = arguments[2];
-//   });
-//   return obj;
-// }
+function queryURLparamsRegEs5(url) {
+  let obj = {};
+  let reg = /([^?=&]+)=([^?=&]+)/g;
+  url.replace(reg, function () {
+    obj[arguments[1]] = arguments[2];
+  });
+  return obj;
+}
 
 // 方法【4】
-// function queryURLparamsRegEs6(url) {
-//   let obj = {};
-//   let reg = /([^?=&]+)=([^?=&]+)/g;
-//   url.replace(reg, (...arg) => {
-//     obj[arg[1]] = arg[2];
-//   });
-//   return obj;
-// }
+function queryURLparamsRegEs6(url) {
+  let obj = {};
+  let reg = /([^?=&]+)=([^?=&]+)/g;
+  url.replace(reg, (...arg) => {
+    obj[arg[1]] = arg[2];
+  });
+  return obj;
+}

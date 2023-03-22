@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper {
+      display: flex;
+      border: 2px solid lime;
+    }
+
+    /* .item11 {
+  flex-basis: 0;
+} */
+    .item1 {
+      background: lightsalmon;
+    }
+
+    .item2 {
+      background: hotpink;
+    }
+
+    .item3 {
+      background: lightgreen;
+    }
+
+    .item1,
+    .item2,
+    .item3 {
+      flex-grow: 1;
+      flex-shrink: 1;
+      /* 目前不影响啥，因为flex-basis设置的是0，item已经是折叠到最小宽度了 */
+      flex-basis: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="item1">11111111111111111111111111111111111111111</div>
+    <div class="item2">2</div>
+    <div class="item3">333333333</div>
+  </div>
+
+
+</body>
+
+</html>
