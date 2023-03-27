@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .tab {
+      border: 10px solid pink;
+      width: 666px;
+      height: 300px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 2px dotted darkblue;
+
+    }
+  </style>
+</head>
+
+<body>
+  <table class="tab">
+    <caption>加油必胜</caption>
+    <thead>
+      <tr>
+        <th>我必坚持</th>
+        <th>我必勇敢</th>
+        <th>我必成功</th>
+        <th>我必健康</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2">我必胜利</td>
+        <td>我必胜利</td>
+        <td>我必胜利</td>
+      </tr>
+
+      <tr>
+        <td rowspan="2">我必胜利</td>
+        <td>我必胜利</td>
+        <td>我必胜利</td>
+        <td>我必胜利</td>
+      </tr>
+      <tr>
+        <td>我必胜利</td>
+        <td>我必胜利</td>
+        <td>我必胜利</td>
+
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>总结</td>
+        <td>yes!</td>
+        <td>yes!!</td>
+        <td>yes!!!</td>
+      </tr>
+    </tfoot>
+
+  </table>
+  <script>
+    function foo() {
+      console.log(this);
+    }
+    let obj1 = {
+      name: "obj1",
+      foo: foo,
+    };
+    let bar = obj1.foo;
+    bar();
+  </script>
+</body>
+
+</html>

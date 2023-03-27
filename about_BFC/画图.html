@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>Document</title>
   <style>
     .box {
@@ -32,11 +32,57 @@
     }
 
     .shanxing2 {
-      border-radius: 100px 0 0;
-      width: 100px;
-      height: 100px;
+      border-radius: 50px 0 0;
+      width: 50px;
+      height: 50px;
       background: #00f;
       transform: rotate(80deg);
+    }
+
+    .test1 {
+      position: relative;
+      margin-top: 20px;
+      width: 600px;
+      height: 600px;
+      background-color: pink;
+      /* transform-style: preserve-3d; */
+      perspective: 1200px;
+
+
+    }
+
+
+
+    .test1>div:first-child {
+      /* float: left; */
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: rgb(108, 181, 109);
+      /* transform: translate3d(50px, 50px, 50px); */
+      transform: rotateY(30deg);
+      /* transform: rotateY(30deg); */
+      /* transform: rotateZ(60deg); */
+      /* transform: rotate3d(0.5, 0.5, 0.5, 60deg); */
+      z-index: 100;
+      opacity: 0.6;
+    }
+
+    .test1>div:nth-child(2) {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 150px;
+      height: 150px;
+      background-color: rgb(221, 172, 198);
+      /* transform: translate3d(50px, 50px, 50px); */
+      /* transform: translate3d(50px, 50px, 0px); */
+      transform: rotateY(30deg);
+      /* transform: rotateY(60deg); */
+      /* transform: rotateZ(60deg); */
+      /* transform: rotate3d(0.5, 0.5, 0.5, 60deg); */
+      opacity: 0.6;
+
     }
   </style>
 </head>
@@ -46,6 +92,12 @@
   <div class="radi"></div>
   <div class="shanxing1"></div>
   <div class="shanxing2"></div>
+  <div class="test1">
+    <div class="test1Son"></div>
+    <div class="test2Son"></div>
+    <div class="test1Son"></div>
+    <div class="test1Son"></div>
+  </div>
 </body>
 
 </html>

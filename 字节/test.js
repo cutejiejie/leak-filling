@@ -43,7 +43,7 @@ fn(); // 100
   // })
   // .catch((err) => {
   //   console.log("err1", err);
-  //   throw new Error("catch出错啦");
+  //   thi new Error("catch出错啦");
   // })
   // .catch((err) => {
   //   console.log("err2", err);
@@ -143,10 +143,118 @@ console.log(result);
 console.log(result[0]);
 console.log(result[1]);
  */
-
+/* 
 const date = new Date();
 console.log(date.getTime());
 console.log(+date);
 console.log(Date.now());
 console.log(new Date().valueOf());
 console.log("parse:", Date.parse("1979-01-01"));
+ */
+
+// function foo() {
+//   console.log(this);
+// }
+// let obj1 = {
+//   name: "obj1",
+//   foo: foo,
+// };
+// let obj2 = {
+//   name: "obj2",
+//   obj1: obj1,
+// };
+// obj2.obj1.foo();
+
+// function foo() {
+//   console.log(this);
+// }
+// let obj1 = {
+//   name: "obj1",
+//   foo: foo,
+// };
+// let bar = obj1.foo;
+// bar();
+// foo.call(123);
+
+function foo1(...args) {
+  console.log(this);
+  console.log("剩余参数", args);
+}
+let objBind = {
+  name: "节节",
+  age: 26,
+};
+let bar = foo1.bind(objBind, "kobo", 18, 1.88);
+// bar("james");
+
+foo1.call(123, "kobo", 18, 1.88);
+
+function myNew(fn, name, age, height) {
+  const obj = Object.create(fn.prototype);
+  const res = fn.apply(obj, [...arguments].slice(1));
+  return typeof res === "object" ? res : obj;
+}
+
+let arr = [1, 5, 7, 9];
+arr.forEach((el) => console.log(1111));
+console.log(arr.filter((item) => true));
+
+var minPathSum = function (grid) {
+  const dp = [];
+  for (let i = 0; i < grid.length; i++) {
+    dp[i] = [];
+    for (let j = 0; j < grid[0].length; j++) {
+      if (i == 0 && j == 0) {
+        dp[i][j] = grid[i][j];
+      } else if (i == 0) {
+        dp[i][j] = dp[i][j - 1] + grid[i][j];
+      } else if (j == 0) {
+        dp[i][j] = dp[i - 1][j] + grid[i][j];
+      } else {
+        dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+      }
+    }
+  }
+  return dp[dp.length - 1][dp[0].length - 1];
+};
+
+var spiralOrder = function (matrix) {
+  let i = matrix.length;
+  let j = matrix[0].length;
+  const result = new Array(i).fill(null).map(() => new Array(j).fill(0));
+  let count = 0;
+  let top = 0;
+  let right = j - 1;
+  let bottom = i - 1;
+  let left = 0;
+  while (1) {
+    if (count >= i * j) {
+      return result;
+    }
+    for (let i = left; i <= right - 1; i++) {
+      result[count++] = matrix[top][i];
+    }
+    if (top === bottom) {
+      result[count++] = matrix[top][right];
+      return result;
+    }
+    for (let i = top; i <= bottom - 1; i++) {
+      result[count++] = matrix[i][right];
+    }
+    if (left === right) {
+      result[count++] = matrix[bottom][right];
+      return result;
+    }
+    for (let i = right; i >= left + 1; i--) {
+      result[count++] = matrix[bottom][i];
+    }
+    for (let i = bottom; i >= top + 1; i--) {
+      result[count++] = matrix[i][left];
+    }
+    left++;
+    right--;
+    top++;
+    bottom--;
+  }
+  return result;
+};
