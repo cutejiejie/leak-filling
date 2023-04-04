@@ -35,3 +35,4 @@ const foo = create();
 foo();
 console.log(jiejie);
 //  jiejie is not defined
+// 0404
